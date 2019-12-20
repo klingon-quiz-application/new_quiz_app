@@ -1,0 +1,22 @@
+[2019-11-01 11:32:31] INFO  WEBrick 1.4.2
+[2019-11-01 11:32:31] INFO  ruby 2.5.5 (2019-03-15) [arm-linux-gnueabihf]
+== Sinatra (v2.0.7) has taken the stage on 8888 for development with backup from WEBrick
+[2019-11-01 11:32:31] INFO  WEBrick::HTTPServer#start: pid=19031 port=8888
+::1 - - [01/Nov/2019:11:33:14 +0900] "GET / HTTP/1.1" 200 17 0.0192
+::1 - - [01/Nov/2019:11:33:14 JST] "GET / HTTP/1.1" 200 17
+- -> /
+::1 - - [01/Nov/2019:17:26:28 +0900] "GET / HTTP/1.1" 200 17 0.0034
+::1 - - [01/Nov/2019:17:26:28 JST] "GET / HTTP/1.1" 200 17
+- -> /
+[2019-11-01 17:26:30] FATAL SignalException: SIGHUP
+	/usr/lib/ruby/2.5.0/webrick/server.rb:170:in `select'
+	/usr/lib/ruby/2.5.0/webrick/server.rb:170:in `block in start'
+	/usr/lib/ruby/2.5.0/webrick/server.rb:32:in `start'
+	/usr/lib/ruby/2.5.0/webrick/server.rb:157:in `start'
+	/var/lib/gems/2.5.0/gems/rack-2.0.7/lib/rack/handler/webrick.rb:34:in `run'
+	/var/lib/gems/2.5.0/gems/sinatra-2.0.7/lib/sinatra/base.rb:1525:in `start_server'
+	/var/lib/gems/2.5.0/gems/sinatra-2.0.7/lib/sinatra/base.rb:1459:in `run!'
+	/var/lib/gems/2.5.0/gems/sinatra-2.0.7/lib/sinatra/main.rb:45:in `block in <module:Sinatra>'
+[2019-11-01 17:26:30] INFO  going to shutdown ...
+[2019-11-01 17:26:30] INFO  WEBrick::HTTPServer#start done.
+== Sinatra has ended his set (crowd applauds)

@@ -1,0 +1,16 @@
+アカウント作成<br>
+
+<form action="/creation" method="post">
+ID: <input type="text" name="uid" size="40" maxlength="20"><br>
+パスワード: <input type="password" name="pass" size="40" maxlength="30"><br>
+名前: <input type="text" name="name" size="40" maxlength="20"><br>
+年齢: <input type="text" name="age" size="20" maxlength="6"><br>
+<input type="radio" name="sex" value="male" checked="checked">男性
+<input type="radio" name="sex" value="female">女性
+<input type="radio" name="sex" value="other">その他<br>
+挨拶: <input type="text" name="message" size="40" maxlength="200"><br>
+E-mail: <input type="text" name="email" size="40" maxlength="50"><br>
+<br>
+<input type="submit" value="作成">
+<input type="reset" value="リセット">
+</form>

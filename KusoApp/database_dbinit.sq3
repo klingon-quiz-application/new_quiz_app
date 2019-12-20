@@ -1,0 +1,16 @@
+create table accounts (
+id char(20) primary key,
+salt varchar(40),
+hashed varchar(40),
+algo char(5)
+);
+
+create table profiles (
+id char(20) primary key,
+name varchar(20),
+age char(6),
+sex char(2),
+message varchar(200),
+email varchar(50),
+highscore unsigned
+);

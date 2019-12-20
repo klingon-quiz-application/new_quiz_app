@@ -1,0 +1,55 @@
+create table accounts (
+id char(20) primary key,
+salt varchar(40),
+hashed varchar(40),
+algo char(5)
+);
+
+create table profiles (
+id char(20) primary key,
+name varchar(20),
+age char(6),
+sex char(2),
+message varchar(200),
+email varchar(50),
+cc unsigned,
+qc unsigned,
+rate float
+);
+
+create table english_words (
+id int primary key,
+word char(20),
+eid int 
+);
+
+insert into english_words values (1, 'kome', 1);
+insert into english_words values (2, 'soshina', 2);
+insert into english_words values (3, 'sugarashi', 3);
+insert into english_words values (4, 'sumeshi', 4);
+insert into english_words values (5, 'itoigawa', 5);
+insert into english_words values (6, 'nu', 6);
+
+create table klingon_words (
+id int primary key,
+word char(20),
+eid int
+);
+
+insert into klingon_words values (1, 'bosobosomeshi', 1);
+insert into klingon_words values (2, 'nipponhamu', 2);
+insert into klingon_words values (3, 'imuraya', 3);
+insert into klingon_words values (4, 'koshihikari', 5);
+insert into klingon_words values (5, 'nununu', 6);
+
+create table japanese_words (
+id int primary key,
+word char(20),
+eid int
+);
+
+insert into japanese_words values (1, '焼きおにぎり', 1);
+insert into japanese_words values (2, '寿司', 4);
+insert into japanese_words values (3, '蟹', 5);
+insert into japanese_words values (4, 'いむらや', 3);
+insert into japanese_words values (5, 'ぬ', 6);

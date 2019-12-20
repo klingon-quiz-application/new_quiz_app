@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>クリンゴン語学習サイト</title>
+</head>
+<body>
+
+<center>
+<h2>マイページ</h2>
+</center>
+
+<table border>
+
+<tr>
+  <th>お名前</th>
+  <td><%= @f.name %></tr>
+</tr>
+<tr>
+  <th>性別</th>
+  <td>
+    <% if @f.sex == "0" then %>
+    男
+    <% elsif @f.sex == "1" then %>
+    女
+    <% else %>
+    トランスフォーマー
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <th>年齢</th>
+  <td><%= @f.age %>歳</td>
+</tr>
+<tr>
+  <th>ひと言</th>
+  <td><%= @f.message %></td>
+</tr>
+<tr>
+  <th>連絡先</th>
+  <td><%= @f.email %></td>
+</tr>
+<tr>
+  <th>正答率</th>
+  <td>
+    <% if @f.rate == nil %>
+    --
+    <% else %>
+    <%= @f.rate %>%
+    <% end %>
+  </td>
+</tr>
+
+</table>
+
+<hr>
+<a href="/quiz">クイズ</a><br>
+<a href="/ranking">ランキング</a><br>  
+<a href="/change_profile">プロフィール変更</a><br>
+<a href="/logout">ログアウト</a>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>クリンゴン語学習</title>
+</head>
+<body>
+
+<center>
+<h2>ランキング</h2>
+</center>
+
+<table border>
+
+<tr>
+<th>ランク</th>
+<th>お名前</th>
+<th>正答率</th>
+</tr>
+
+<% rank = 1  %>
+
+<% @rkg.each do |a| %>
+<tr>
+<td><%= rank %></td>
+<td><%= a.name %></td>
+<td>
+  <% if a.rate == nil %>
+  --
+  <% else %>
+  <%= a.rate %>%
+  <% end %>
+</td>
+</tr>
+<% rank += 1 %>
+<% end %>
+
+</table>
+
+<hr>
+<a href="/quiz">クイズ</a><br>
+<a href="/mypage">マイページ</a><br> 
+<a href="/change_profile">プロフィール変更</a><br>
+<a href="/logout">ログアウト</a>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>クリンゴン語学習サイトクイズページ</title>
+</head>
+<body>
+
+<center>
+<h2>第<%= $page %>問</h2>
+</center>
+
+クリンゴン語: <%= $question_record.word %><br>
+<form action="/judgment" method="post">
+あなたの答え: <input type="text" name="uanswer" size="40" maxlength="20"><br>
+
+<input type="submit" value="解答">
+</form>
+
+<table width="100%">
+
+<tr>
+<td align="right">
+<form style="display:inline;" method="post" action="next">
+<input type="submit" value="あきらめて次の問題へ">
+</form>
+</td>
+</tr>
+
+<a href="/mypage">クイズ終了</a>
+
+</table>
+
+</body>
+</html>
+

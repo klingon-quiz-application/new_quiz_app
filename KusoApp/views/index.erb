@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>音藻断ち</title>
+</head>
+<body>
+
+<center>
+<h2>お友達一覧</h2>
+</center>
+
+<table width="100%">
+
+<tr>
+<td>
+<% if $page != 1 then %>
+<form style="display:inline;" method="post" action="back">
+<input type="submit" value="BACK">
+</form>
+<% end %>
+</td>
+
+<td align="right">
+<% if (@f.count) > (($page) * 10) then %>
+<form style="display:inline;" method="post" action="next">
+<input type="submit" value="NEXT">
+</form>
+<% end %>
+</td>
+</tr>
+
+<tr>
+<td>
+<form style="display:inline;" method="post" action="narrowed_contentsp\
+age">
+性別:<select name="narrowed_sex">
+<option value="unselect">-</option>
+<option value="male">男</option>
+<option value="female">女</option>
+</select>
+<input type="submit" value="絞り込み">
+</form>
+</td>
+</tr>
+
+</table>
+
+<hr>
+<% @g.each do |a| %>
+お名前:<%= a.name %><br>
+<% if a.sex == "0" then %>
+性別:男<br>
+<% elsif a.sex == "1" then %>
+性別: 女<br>
+<% else %>
+性別:おそらく仏<br>
+<% end %>
+年齢:<%= a.age %>歳<br>
+ひと言:<%= a.message %><br>
+連絡先:<%= a.email %><br>
+<hr>
+<% end %>
+
+page = <%= $page %><br>
+
+<table width="100%">
+
+<tr>
+<td>
+<% if $page != 1 then %>
+<form style="display:inline;" method="post" action="back">
+<input type="submit" value="BACK">
+</form>
+<% end %>
+</td>
+
+<td align="right">
+<% if (@f.count) > (($page) * 10) then %>
+<form style="display:inline;" method="post" action="next">
+<input type="submit" value="NEXT">
+</form>
+<% end %>
+</td>
+</tr>
+
+<a href="/change_profile">プロフィール変更</a><br>
+<a href="/logout">ログアウト</a>
+
+</table>
+
+</body>
+</html>

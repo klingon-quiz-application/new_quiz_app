@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>クリンゴン語学習サイトクイズページ</title>
+</head>
+<body>
+
+<center>
+<h2>第<%= session[:page] %>問</h2>
+</center>
+
+<% @question_record.each do |q| %>
+クリンゴン語: <%= q.word %><br>
+<% end %>
+<form action="/judgment" method="post">
+<% @ansA.each do |a| %>
+<input type="checkbox" name="uans" value=<%=a.eid%>><%= a.word %>
+<% end %>
+<% @ansB.each do |b| %>
+<input type="checkbox" name="uans" value=<%=b.eid%>><%= b.word %>
+<% end %>
+<% @ansC.each do |c| %>
+<input type="checkbox" name="uans" value=<%=c.eid%>><%= c.word %>
+<% end %>
+<br>
+<input type="submit" value="解答">
+</form>
+
+<table width="100%">
+
+<tr>
+<td align="right">
+<form style="display:inline;" method="post" action="next">
+<input type="submit" value="あきらめて次の問題へ">
+</form>
+</td>
+</tr>
+
+<a href="/mypage">クイズ終了</a>
+
+</table>
+
+</body>
+</html>
+
