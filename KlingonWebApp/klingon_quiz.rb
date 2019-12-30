@@ -25,6 +25,7 @@ set :environment, :production
 set :sessions,
   expire_after: 7200,
   secret: 'abcdefghij0123456789'
+set :public, File.dirname(__FILE__) + '/public'
 
 # 初期ページ(ログインへ)-----------------------------------------------
 get '/' do
