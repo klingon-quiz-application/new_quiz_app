@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<title>クリンゴン語学習</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>クリンゴン語学習</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+	<center>
+		<h2>ランキング</h2>
+		<a href="/quiz">
+			<button type="button" class="btn btn-primary">クイズ</button>
+		</a>
+		<a href="/mypage">
+			<button type="button" class="btn btn-success">マイページ</button>
+		</a>
+		<a href="/change_profile">
+			<button type="button" class="btn btn-info">プロフィール変更</button>
+		</a>
+		<a href="/logout">
+			<button type="button" class="btn btn-warning">ログアウト</button>
+		</a>
+	</center>
+	<hr>
+	<center>
+		<div class="container">
+			<div class="table-responsive">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>ランク</th>
+						<th>お名前</th>
+						<th>正答率</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% rank = 1  %>
+					<% @rkg.each do |a| %>
+					<tr>
+						<th scope="row"><%= rank %></th>
 
-<center>
-<h2>ランキング</h2>
-</center>
-
-<table border>
-
-<tr>
-<th>ランク</th>
-<th>お名前</th>
-<th>正答率</th>
-</tr>
-
-<% rank = 1  %>
-
-<% @rkg.each do |a| %>
-<tr>
-<td><%= rank %></td>
-<td><%= a.name %></td>
-<td>
-  <% if a.rate == nil %>
-  --
-  <% else %>
-  <%= a.rate %>%
-  <% end %>
-</td>
-</tr>
-<% rank += 1 %>
-<% end %>
-
-</table>
-
-<hr>
-<a href="/quiz">クイズ</a><br>
-<a href="/mypage">マイページ</a><br> 
-<a href="/change_profile">プロフィール変更</a><br>
-<a href="/logout">ログアウト</a>
-
+						<td><%= a.name %></td>
+						<td>
+							<% if a.rate == nil %>
+							--
+							<% else %>
+							<%= a.rate %>%
+							<% end %>
+						</td>
+					</tr>
+					<% rank += 1 %>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		</div>
+	</center>
+	
+	
 </body>
 </html>
