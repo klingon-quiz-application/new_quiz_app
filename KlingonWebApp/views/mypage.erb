@@ -1,63 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<title>クリンゴン語学習サイト</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>クリンゴン語学習サイト</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<center>
-<h2>マイページ</h2>
-</center>
+  <center>
+    <h2>マイページ</h2>
+    <a href="/quiz">
+      <button type="button" class="btn btn-primary">クイズ</button>
+    </a>
+    <a href="/ranking">
+      <button type="button" class="btn btn-success">ランキング</button>
+    </a>
+    <a href="/change_profile">
+      <button type="button" class="btn btn-info">プロフィール変更</button>
+    </a>
+    <a href="/logout">
+      <button type="button" class="btn btn-warning">ログアウト</button>
+    </a>
+  </center>
+  <hr>
+  <center>
+    <div class="container">
+      <div class="table-responsive">
 
-<table border>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">お名前</th>
+              <td><%= @f.name %></tr>
+              </tr>
+              <tr>
+                <th scope="row">性別</th>
+                <td>
+                  <% if @f.sex == "0" then %>
+                  男
+                  <% elsif @f.sex == "1" then %>
+                  女
+                  <% else %>
+                  トランスフォーマー
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">年齢</th>
+                <td><%= @f.age %>歳</td>
+              </tr>
+              <tr>
+                <th scope="row">ひと言</th>
+                <td><%= @f.message %></td>
+              </tr>
+              <tr>
+                <th scope="row">連絡先</th>
+                <td><%= @f.email %></td>
+              </tr>
+              <tr>
+                <th scope="row">正答率</th>
+                <td>
+                  <% if @f.rate == nil %>
+                  --
+                  <% else %>
+                  <%= @f.rate %>%
+                  <% end %>
+                </td>
+              </tr>
+            </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </center>
 
-<tr>
-  <th>お名前</th>
-  <td><%= @f.name %></tr>
-</tr>
-<tr>
-  <th>性別</th>
-  <td>
-    <% if @f.sex == "0" then %>
-    男
-    <% elsif @f.sex == "1" then %>
-    女
-    <% else %>
-    トランスフォーマー
-    <% end %>
-  </td>
-</tr>
-<tr>
-  <th>年齢</th>
-  <td><%= @f.age %>歳</td>
-</tr>
-<tr>
-  <th>ひと言</th>
-  <td><%= @f.message %></td>
-</tr>
-<tr>
-  <th>連絡先</th>
-  <td><%= @f.email %></td>
-</tr>
-<tr>
-  <th>正答率</th>
-  <td>
-    <% if @f.rate == nil %>
-    --
-    <% else %>
-    <%= @f.rate %>%
-    <% end %>
-  </td>
-</tr>
-
-</table>
-
-<hr>
-<a href="/quiz">クイズ</a><br>
-<a href="/ranking">ランキング</a><br>  
-<a href="/change_profile">プロフィール変更</a><br>
-<a href="/logout">ログアウト</a>
-
-</body>
-</html>
+  </body>
+  </html>
